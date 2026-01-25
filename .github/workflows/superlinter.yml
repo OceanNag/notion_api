@@ -16,3 +16,4 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
           ISORT_ARGS: "--profile black"
+          ISORT_CONFIG_FILE: ".isort.cfg"
