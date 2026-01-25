@@ -5,6 +5,7 @@ import dotenv
 import functions
 
 dotenv.load_dotenv()
+
 NOTION_TOKEN = os.getenv("NOTION_API")
 DATABASE_ID = os.getenv("database_id")
 
