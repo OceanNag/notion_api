@@ -2,7 +2,7 @@ import os
 
 import dotenv
 
-from functions import get_pages
+import functions
 
 dotenv.load_dotenv()
 NOTION_TOKEN = os.getenv("NOTION_API")
@@ -22,7 +22,7 @@ headers = {
 notion_details = {"DATABASE_ID": DATABASE_ID, "headers": headers}
 
 
-pages = get_pages(notion_details=notion_details)
+pages = functions.get_pages(notion_details=notion_details)
 print("List of pages - ")
 for page in pages:
     page_id = page["id"]
