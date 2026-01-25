@@ -1,6 +1,5 @@
 import json
 from typing import Any, Dict
-
 import requests
 
 
@@ -25,7 +24,10 @@ def get_pages(notion_details: dict, num_pages=None):
 
     results = data["results"]
     while data["has_more"] and get_all:
-        payload = {"page_size": page_size, "start_cursor": data["next_cursor"]}
+        payload = {
+            "page_size": page_size,
+            "start_cursor": data["next_cursor"],
+        }
         url = f"https://api.notion.com/v1/databases/{data_source_id}/query"
         response = requests.post(url, json=payload, headers=headers)
         data = response.json()
@@ -51,14 +53,19 @@ def create_page(notion_details: dict, data: dict):
         "Status": {"status": {"name": status}},
     }
 
-    payload = {"parent": {"database_id": DATABASE_ID}, "properties": post_data}
+    payload = {
+        "parent": {"database_id": DATABASE_ID},
+        "properties": post_data,
+    }
 
     res = requests.post(create_url, headers=headers, json=payload)
 
     if res.status_code == 200:
         print(name, " - page created successfully")
     else:
-        print("error with posting page named", name, " - error", res.status_code)
+        print(
+            "error with posting page named", name, " - error", res.status_code
+        )
     return res
 
 
@@ -69,7 +76,9 @@ def update_page(notion_details: dict, page_id: str, data: dict):
     if "name" in data:
         update_data["Name"] = {"title": [{"text": {"content": data["name"]}}]}
     if "title" in data:
-        update_data["Title"] = {"rich_text": [{"text": {"content": data["title"]}}]}
+        update_data["Title"] = {
+            "rich_text": [{"text": {"content": data["title"]}}]
+        }
     if "created_date" in data:
         update_data["Created Date"] = {
             "date": {"start": data["created_date"], "end": None}
