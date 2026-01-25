@@ -1,8 +1,8 @@
 import os
 
-from functions import get_pages
-
 import dotenv
+
+from functions import get_pages
 
 dotenv.load_dotenv()
 NOTION_TOKEN = os.getenv("NOTION_API")
