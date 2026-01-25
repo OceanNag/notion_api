@@ -2,11 +2,16 @@ import os
 
 import dotenv
 
-from functions import create_page, get_pages, update_page
+from functions import get_pages
 
 dotenv.load_dotenv()
 NOTION_TOKEN = os.getenv("NOTION_API")
 DATABASE_ID = os.getenv("database_id")
+
+if NOTION_TOKEN is None:
+    raise RuntimeError("NOTION_TOKEN is not set")
+if DATABASE_ID is None:
+    raise RuntimeError("DATABASE_ID is not set")
 
 headers = {
     "Authorization": "Bearer " + NOTION_TOKEN,
