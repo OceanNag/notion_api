@@ -1,6 +1,6 @@
 [tool.isort]
 profile = "black"
-known_first_party = ["functions"]  # update to your local modules
+known_first_party = ["functions"]
 
 [tool.black]
 line-length = 88
