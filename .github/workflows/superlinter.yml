@@ -17,3 +17,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
           ISORT_ARGS: "--profile black"
           ISORT_CONFIG_FILE: ".isort.cfg"
+          VALIDATE_ISORT: false

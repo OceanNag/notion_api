@@ -4,7 +4,6 @@ import dotenv
 
 import functions
 
-
 dotenv.load_dotenv()
 
 NOTION_TOKEN = os.getenv("NOTION_API")
