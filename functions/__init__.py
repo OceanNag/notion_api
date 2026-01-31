@@ -64,9 +64,7 @@ def create_page(notion_details: dict, data: dict):
     if res.status_code == 200:
         print(name, " - page created successfully")
     else:
-        print(
-            "error with posting page named", name, " - error", res.status_code
-        )
+        print("error with posting page named", name, " - error", res.status_code)
     return res
 
 
@@ -77,9 +75,7 @@ def update_page(notion_details: dict, page_id: str, data: dict):
     if "name" in data:
         update_data["Name"] = {"title": [{"text": {"content": data["name"]}}]}
     if "title" in data:
-        update_data["Title"] = {
-            "rich_text": [{"text": {"content": data["title"]}}]
-        }
+        update_data["Title"] = {"rich_text": [{"text": {"content": data["title"]}}]}
     if "created_date" in data:
         update_data["Created Date"] = {
             "date": {"start": data["created_date"], "end": None}
