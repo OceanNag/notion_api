@@ -4,4 +4,4 @@ src_paths = ["."]
 known_first_party = ["functions"]
 
 [tool.black]
-line-length = 78
+line-length = 88
