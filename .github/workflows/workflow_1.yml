@@ -1,9 +1,10 @@
-name: Test
+name: workflow_1
 
 on: push
 
 jobs:
-  test:
+  workflow_1:
+    name: workflow_1
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
