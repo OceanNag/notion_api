@@ -17,6 +17,6 @@ jobs:
 
       - name: run main script
         env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          NOTION_API: ${{ secrets.NOTION_TOKEN }}
+          database_id: ${{ secrets.NOTION_DATABASE_ID }}
         run: python main.py
