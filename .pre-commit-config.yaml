@@ -13,3 +13,8 @@ repos:
     hooks:
       - id: mypy
         additional_dependencies: ["types-requests"]
+
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.6.27
+    hooks:
+      - id: actionlint
